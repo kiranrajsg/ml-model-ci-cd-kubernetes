@@ -1,26 +1,23 @@
-Production-Grade ML Inference Platform (CI/CD + Kubernetes)
+# Production-Grade ML Inference Platform (CI/CD + Kubernetes)
 
 This repository contains a production-style Machine Learning inference platform, built end-to-end using modern MLOps practices.
 The project demonstrates how to take a trained ML model from local development → CI/CD → container registry → Kubernetes deployment.
 
-🚀 Overview
+## 🚀 Overview
 
 The system exposes a REST API for real-time ML predictions and is designed with production readiness in mind:
 
-#Model training and serialization
+- **Model training and serialization**
+- **Stateless inference API**
+- **Production-grade WSGI server**
+- **Dockerized runtime**
+- **Automated CI with testing**
+- **Secure image publishing**
+- **Kubernetes deployment and lifecycle management**
 
-#Stateless inference API
+## 📊 Architecture
 
-#Production-grade WSGI server
-
-#Dockerized runtime
-
-#Automated CI with testing
-
-#Secure image publishing
-
-#Kubernetes deployment and lifecycle management     
-
+```mermaid
 flowchart TD
     subgraph "Development Phase"
         A[ML Model<br/>scikit-learn + joblib]
@@ -61,32 +58,19 @@ flowchart TD
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style L fill:#9f9,stroke:#333,stroke-width:2px
     style E fill:#ff9,stroke:#333,stroke-width:2px
-    style I fill:#9cf,stroke:#333,stroke-width:2px     
-
-
-
-    Tech Stack
-
-Language: Python
-
-ML: scikit-learn, joblib
-
-API: Flask
-
-Production Server: Gunicorn
-
-Containerization: Docker
-
-CI/CD: GitHub Actions
-
-Registry: Docker Hub
-
-Orchestration: Kubernetes (minikube)  
-
-
-Project Structure
-
-
+    style I fill:#9cf,stroke:#333,stroke-width:2px
+🛠️ Tech Stack
+Category	Technologies
+Language	Python
+ML	scikit-learn, joblib
+API	Flask
+Production Server	Gunicorn
+Containerization	Docker
+CI/CD	GitHub Actions
+Registry	Docker Hub
+Orchestration	Kubernetes (minikube)
+📁 Project Structure
+text
 ml-model-ci-cd-kubernetes/
 ├── app/
 │   └── app.py              # Flask inference API
@@ -99,65 +83,55 @@ ml-model-ci-cd-kubernetes/
 │   └── service.yaml        # Kubernetes Service
 ├── Dockerfile
 ├── requirements.txt
+├── .github/workflows/ci.yml
 └── README.md
-
-
 🔮 Model & API
 Model
-
 Algorithm: Logistic Regression
 
 Dataset: Iris dataset
 
 Serialization: joblib
 
-Model is loaded once at startup (production best practice).
+Best Practice: Model loaded once at startup
 
 API Endpoints
 Health Check
+http
 GET /
-
-
 Response:
 
+text
 OK
-
 Prediction
+http
 POST /predict
 Content-Type: application/json
-
-
 Request body:
 
+json
 {
   "features": [5.1, 3.5, 1.4, 0.2]
 }
-
-
 Response:
 
+json
 {
   "prediction": 0
 }
-
 🐳 Docker
-
 The application is containerized using a slim Python base image and runs with Gunicorn for production-grade request handling.
 
 Build locally:
 
+bash
 docker build -t ml-model .
-
-
 Run locally:
 
+bash
 docker run -p 5000:5000 ml-model
-
 🔁 CI/CD Pipeline
-
-Implemented using GitHub Actions.
-
-On every push to main, the pipeline:
+Implemented using GitHub Actions. On every push to main, the pipeline:
 
 Installs dependencies
 
@@ -172,36 +146,34 @@ Pushes the tested image to Docker Hub
 This ensures only validated images are published.
 
 📦 Docker Hub
-
 The image is published automatically by CI:
 
+bash
 kiranrajsg/ml-model:latest
-
-
 Publicly pullable and Kubernetes-ready.
 
 ☸️ Kubernetes Deployment (Local)
-
 Deployed using minikube.
 
-Apply manifests
+Apply manifests:
+
+bash
 kubectl apply -f k8s/deployment.yaml
 kubectl apply -f k8s/service.yaml
+Access service (local):
 
-Access service (local)
+bash
 kubectl port-forward svc/ml-model-service 5000:5000
-
-
 Then call the API at:
 
+text
 http://localhost:5000
+Clean teardown:
 
-Clean teardown
+bash
 kubectl delete deployment ml-model
 kubectl delete service ml-model-service
-
 ✅ Key Engineering Practices Demonstrated
-
 Production-safe model serving
 
 Automated CI with runtime validation
@@ -217,7 +189,6 @@ Kubernetes deployment fundamentals
 Declarative infrastructure and clean teardown
 
 🎯 Intended Audience
-
 This project is intended for:
 
 ML Engineers transitioning to MLOps
@@ -229,7 +200,6 @@ Recruiters evaluating production readiness
 Interview discussions on real-world ML deployment
 
 📌 Future Enhancements (Optional)
-
 Liveness & readiness probes
 
 Resource limits and autoscaling
@@ -241,7 +211,6 @@ Monitoring (Prometheus metrics)
 Authentication & authorization
 
 👤 Author
-
 Kiranraj S G
 Machine Learning & ECE Graduate
-GitHub: https://github.com/kiranrajsg
+📧 kiranrajganesan16@gmail.com
