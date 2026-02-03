@@ -14,6 +14,19 @@ The system exposes a REST API for real-time ML predictions and is designed with 
 - **Automated CI with testing**
 - **Secure image publishing**
 - **Kubernetes deployment and lifecycle management**
+
+## Architecture
+
+<img src="docs/architecture.png" width="600"/>
+
+
+......................................................................................................................
+
+
+## Architecture
+
+<img src="docs/architecture2.png" width="600"/>
+
   
 
 ## 📁 Project Structure
