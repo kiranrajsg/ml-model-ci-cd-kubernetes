@@ -11,4 +11,4 @@ COPY model model
 
 EXPOSE 5000
 
-CMD ["python", "app/app.py"]
+CMD ["gunicorn", "--workers", "2", "--bind", "0.0.0.0:5000", "app.app:app"]
