@@ -57,7 +57,6 @@ flowchart TD
     style L fill:#9f9,stroke:#333,stroke-width:2px
     style E fill:#ff9,stroke:#333,stroke-width:2px
     style I fill:#9cf,stroke:#333,stroke-width:2px
-
 ## 🛠️ Tech Stack
 
 | Category | Technologies |
@@ -219,4 +218,5 @@ This project is intended for:
 **Kiranraj S G**  
 Machine Learning & ECE Graduate  
 📧 kiranrajganesan16@gmail.com
+
 
