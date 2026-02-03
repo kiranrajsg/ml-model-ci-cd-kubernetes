@@ -14,6 +14,51 @@ The system exposes a REST API for real-time ML predictions and is designed with 
 - **Automated CI with testing**
 - **Secure image publishing**
 - **Kubernetes deployment and lifecycle management**
+  
+```mermaid
+flowchart TD
+    subgraph "Development Phase"
+        A[ML Model<br/>scikit-learn + joblib]
+        B[Flask REST API]
+        C[Gunicorn WSGI Server]
+        D[Docker Container]
+    end
+
+     
+    subgraph "CI/CD Pipeline"
+        E[GitHub Actions]
+        F[Automated Tests<br/>pytest]
+        G[Docker Image Build]
+    end
+    
+    subgraph "Registry & Orchestration"
+        H[Docker Hub Registry]
+        I[Kubernetes Cluster]
+        J[Deployment<br/>ReplicaSet + Pods]
+        K[Service<br/>NodePort/LoadBalancer]
+    end
+    
+    subgraph "Production"
+        L[Live Inference API<br/>POST /predict]
+    end
+    
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style L fill:#9f9,stroke:#333,stroke-width:2px
+    style E fill:#ff9,stroke:#333,stroke-width:2px
+    style I fill:#9cf,stroke:#333,stroke-width:2px
+```mermaid
 
 ## 📁 Project Structure
 
@@ -163,6 +208,7 @@ This project is intended for:
 **Kiranraj S G**  
 Machine Learning & ECE Graduate  
 📧 kiranrajganesan16@gmail.com
+
 
 
 
