@@ -1,4 +1,4 @@
-# Production-Grade ML Inference Platform (CI/CD + Kubernetes)
+\# Production-Grade ML Inference Platform (CI/CD + Kubernetes)
 
 This repository contains a production-style Machine Learning inference platform, built end-to-end using modern MLOps practices.
 The project demonstrates how to take a trained ML model from local development → CI/CD → container registry → Kubernetes deployment.
@@ -20,7 +20,7 @@ The system exposes a REST API for real-time ML predictions and is designed with 
 <img src="docs/architecture.png" width="600"/>
 
 
-......................................................................................................................
+
 
 
 ## Architecture
